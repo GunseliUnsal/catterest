@@ -27,7 +27,7 @@ class ShowCatButton extends StatelessWidget {
                 logoPath,
                 height: 60.0,
               ),
-              const SizedBox(height: 12.0), // Aralık ekleyebilirsiniz
+              const SizedBox(height: 12.0), 
               Text(
                 appName,
                 style: TextStyle(
@@ -41,7 +41,7 @@ class ShowCatButton extends StatelessWidget {
                 heartPawIconPath,
                 height: 300,
               ),
-              const SizedBox(height: 56.0), // Aralık ekleyebilirsiniz
+              const SizedBox(height: 56.0), 
               ElevatedButton(
                 onPressed: () {
                   Navigator.push(

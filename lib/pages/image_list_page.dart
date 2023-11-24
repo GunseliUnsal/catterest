@@ -1,3 +1,5 @@
+import 'package:catterest/constants/colors.dart';
+import 'package:catterest/pages/favorites_page.dart';
 import 'package:flutter/material.dart';
 import 'package:catterest/data/data_service.dart';
 import 'package:catterest/data/image_model.dart';
@@ -34,24 +36,63 @@ class _ImageListPageState extends State<ImageListPage> {
         centerTitle: true,
         leading: Container(), // leading'i temizle
       ),
-      body: GridView.builder(
-        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2,
-          crossAxisSpacing: 16.0,
-          mainAxisSpacing: 16.0,
-        ),
-        itemCount: images.length,
-        itemBuilder: (context, index) {
-          return Card(
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(8.0), // İsteğe bağlı: Card'ın kenarlarını yuvarlamak için
-              child: Image.network(
-                images[index].url,
-                fit: BoxFit.cover, // Resmi Card'a tamamen sığdırmak için
+      body: Stack(
+        children: [
+          // Background image
+          Center(
+            child: Opacity(
+              opacity: 0.5, // Set opacity to 50%
+              child: Image.asset(
+                'assets/images/heart_paw_icon.png',
+                fit: BoxFit.cover,
+                width: 300,
+                height: 300,
               ),
             ),
-          );
-        },
+          ),
+          Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: GridView.builder(
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                crossAxisSpacing: 15.0,
+                mainAxisSpacing: 15.0,
+              ),
+              itemCount: 6,
+              itemBuilder: (context, index) {
+                return Card(
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(4),
+                    child: Image.network(
+                      images[index].url,
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                );
+              },
+            ),
+          ),
+          Positioned(
+            bottom: 15,
+            right: 33.0,
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(15.0),
+              child: Container(
+                width: 55,
+                height: 55,
+                color: buttonColor,
+                child: IconButton(
+                  iconSize: 40,
+                  color: primaryTextColor,
+                  onPressed: () {
+                    // Handle icon button press
+                  },
+                  icon: const Icon(Icons.autorenew_outlined),
+                ),
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
