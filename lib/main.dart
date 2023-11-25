@@ -1,4 +1,6 @@
 import 'package:catterest/constants/colors.dart';
+import 'package:catterest/pages/favorites_page.dart';
+import 'package:catterest/pages/image_list_page.dart';
 import 'package:catterest/pages/show_cat_button.dart';
 import 'package:flutter/material.dart';
 
